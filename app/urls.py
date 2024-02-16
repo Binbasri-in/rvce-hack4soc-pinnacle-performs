@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('',views.home,name='home'),
     path('home',views.home,name='home'),
@@ -16,5 +17,6 @@ urlpatterns = [
     path('forgot_password',views.forgot_password,name='forgot_password'),
     path('upload_pdf_main',views.upload_pdf_main,name='upload_pdf_main'),
     path('my_drive',views.my_drive,name='my_drive'),
-    path('sign_pdf',views.sign_pdf,name='sign_pdf'),
+    path('upload', views.file_upload, name='file_upload'),
+    path('send_pdf_email', views.send_pdf_email, name='send_pdf_email'),
 ]
