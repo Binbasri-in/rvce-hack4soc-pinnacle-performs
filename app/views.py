@@ -20,29 +20,38 @@ image_path = "temp\\"
 def index(request):
     return render(request, 'index.html')
 
+
 def esign(request):
         return render(request,'esignature.html')
+
 
 def home(request):
     return render(request,'home.html')
 
+
 def register(request):
     return render(request,'auth-register-basic.html')
+
 
 def login(request):
     return render(request,'auth-login-basic.html')
 
+
 def forgot_password(request):
     return render(request,'auth-forgot-password-basic.html')
+
 
 def signtype(request):
     return render(request,'signtype.html')
 
+
 def upload_pdf_main(request):
     return render(request,'upload_pdf.html')
 
+
 def my_drive(request):
     return render(request,'my_drive.html')
+
 
 @csrf_exempt
 def generate_pdf(request):
@@ -62,6 +71,7 @@ def generate_pdf(request):
             return HttpResponse(str(e), status=500)
     else:
         return HttpResponse("Method not allowed", status=405)
+
 
 @csrf_exempt
 def upload_pdf(request):
@@ -83,6 +93,7 @@ def upload_pdf(request):
     else:
         return HttpResponse("Method not allowed", status=405)
 
+
 @csrf_exempt
 def paraphrase_route(request):
     if request.method == 'POST':
@@ -95,6 +106,7 @@ def paraphrase_route(request):
             return HttpResponse(str(e), status=500)
     else:
         return HttpResponse("Method not allowed", status=405)
+
 
 @csrf_exempt
 def summarise_route(request):
@@ -148,3 +160,8 @@ def add_image_to_pdf(pdf_path, image_path, target_text):
 
         with open('output.pdf', 'wb') as output_file:
             writer.write(output_file)
+            
+            
+def sign_pdf(request):
+    return render(request,'sign-request.html', {'pdf_file': 'output.pdf'})
+
