@@ -6,3 +6,4 @@ google-generativeai
 pdfminer
 pdfminer.six
 langchain-google-genai
+gunicorn
